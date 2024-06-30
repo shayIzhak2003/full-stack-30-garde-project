@@ -1,38 +1,119 @@
-.App {
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
   text-align: center;
+  font-family: Arial, sans-serif;
+  background: url('http://codingstella.com/wp-content/uploads/2024/01/download-5.jpeg') no-repeat center center;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Fancy heading styles */
+.fancy-heading {
+  margin-top: 50px;
+  display: block;
+  text-transform: uppercase;
+  font-family: 'Unica One', sans-serif;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;
+  font-size: 48px; /* Adjusted font size */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.fancy-heading::before {
+  content: '';
+  background: black;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  left: 0;
+  top: 50%;
+  z-index: -1;
+}
+
+.fancy-heading::after {
+  content: '';
+  background: white;
+  position: absolute;
+  width: 52%;
+  height: 100%;
+  max-width: 800px;
+  left: 24%;
+  top: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  .fancy-heading {
+      font-size: 32px;
+  }
+  .fancy-heading::after {
+      width: 64%;
+      left: 18%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media screen and (max-width: 360px) {
+  .fancy-heading {
+      font-size: 24px;
+  }
+  .fancy-heading::after {
+      width: 60%;
+      left: 20%;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+/* Task container styles */
+.task-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* TaskList component styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+li:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+  transform: translateY(-3px); /* Move the item up slightly on hover */
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5em; /* Example size adjustment */
+  margin-bottom: 20px; /* Example margin adjustment */
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 0;
+  color: #666;
 }
