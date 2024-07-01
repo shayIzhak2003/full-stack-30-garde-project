@@ -3,7 +3,9 @@ import React from 'react';
 
 const TaskList = ({ tasks }) => {
     return (
-        <div className="task-container">
+        <>
+        <h1 className="fancy-heading animate-charcter ">To-Do List</h1>
+          <div className="task-container">
             <h1>Tasks</h1>
             {tasks.length === 0 ? (
                 <p>No tasks available.</p>
@@ -18,6 +20,8 @@ const TaskList = ({ tasks }) => {
                 </ul>
             )}
         </div>
+        </>
+      
     );
 };
 

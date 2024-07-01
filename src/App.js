@@ -23,7 +23,6 @@ const App = () => {
 
     return (
         <div className="App">
-            <h1 className="fancy-heading">To-Do List</h1>
             <div className="task-container">
                 <TaskList tasks={tasks} />
             </div>

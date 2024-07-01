@@ -26,31 +26,10 @@ html, body {
   position: relative;
   z-index: 3;
   font-size: 48px; /* Adjusted font size */
+  color: #333; /* Default color before animation */
 }
 
-.fancy-heading::before {
-  content: '';
-  background: black;
-  height: 1px;
-  position: absolute;
-  width: 100%;
-  max-width: 800px;
-  left: 0;
-  top: 50%;
-  z-index: -1;
-}
 
-.fancy-heading::after {
-  content: '';
-  background: white;
-  position: absolute;
-  width: 52%;
-  height: 100%;
-  max-width: 800px;
-  left: 24%;
-  top: 0;
-  z-index: -1;
-}
 
 @media screen and (max-width: 600px) {
   .fancy-heading {
@@ -69,6 +48,29 @@ html, body {
   .fancy-heading::after {
       width: 60%;
       left: 20%;
+  }
+}
+
+/* h1 animations */
+.fancy-heading.animate-character {
+  background-image: linear-gradient(
+    -225deg,
+    #a8a316 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
   }
 }
 
@@ -97,7 +99,7 @@ li {
 }
 
 li:hover {
-  background-color: #f0f0f0; /* Light grey background on hover */
+  background-color: bisque; /* Light grey background on hover */
   transform: translateY(-3px); /* Move the item up slightly on hover */
 }
 
