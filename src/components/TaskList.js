@@ -12,13 +12,13 @@ const TaskList = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setTasks(data); // Update tasks state with fetched data
+                setTasks(data); 
             } catch (error) {
                 console.error('Error fetching tasks:', error);
             }
         };
 
-        fetchTasks(); // Call the fetch function
+        fetchTasks(); 
     }, []);
 
     return (
