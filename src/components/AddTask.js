@@ -8,7 +8,7 @@ const AddTask = ({ onAdd }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!title || !description)
-            alert("you need to enter all the data in order to make a task") 
+            alert("you need to enter all the data in order to make a new task") 
         if (title && description) {
             onAdd({ title, description });
             setTitle('');
