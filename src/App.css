@@ -14,6 +14,7 @@ html, body {
   font-family: Arial, sans-serif;
   background: url('http://codingstella.com/wp-content/uploads/2024/01/download-5.jpeg') no-repeat center center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Fancy heading styles */

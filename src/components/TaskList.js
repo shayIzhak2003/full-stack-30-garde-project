@@ -1,46 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import './TaskList.css';
 
-const TaskList = () => {
-    const [tasks, setTasks] = useState([]);
-
-    useEffect(() => {
-        // Fetch tasks from the server
-        const fetchTasks = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/tasks');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setTasks(data); 
-            } catch (error) {
-                console.error('Error fetching tasks:', error);
-            }
-        };
-
-        fetchTasks(); 
-    }, []);
-
+const TaskList = ({ tasks, onDelete, onUpdate }) => {
     return (
-        <>
-            <h1 className="fancy-heading animate-charcter">To-Do List</h1>
-            <div className="task-container">
-                <h1>Tasks</h1>
-                {tasks.length === 0 ? (
-                    <p>No tasks available.</p>
-                ) : (
-                    <ul>
-                        {tasks.map((task) => (
-                            <li key={task.id}>
-                                <h3>{task.title}</h3>
-                                <p>{task.description}</p>
-                               <small><p>created at :{task.createdAt}</p> </small> 
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-        </>
+        <div>
+            <h2>Task List</h2>
+            <ul>
+                {tasks.map((task) => (
+                    <li key={task.id}>
+                        <h3>{task.title}</h3>
+                        <p>{task.description}</p>
+                        <p><small>Created at: {task.createdAt}</small></p>
+                        <button onClick={() => onUpdate(task)}>Update</button>
+                        <button type='button' onClick={() => onDelete(task.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 

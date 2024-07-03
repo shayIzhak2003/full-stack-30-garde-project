@@ -67,7 +67,7 @@ app.post('/tasks', (req, res) => {
         id: uuidv4(),
         title,
         description,
-        createdAt: getCurrentDateTime() // Use the date function directly
+        createdAt: getCurrentDateTime() 
     };
 
     tasks.push(task);
