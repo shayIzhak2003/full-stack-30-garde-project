@@ -67,7 +67,8 @@ app.post('/tasks', (req, res) => {
         id: uuidv4(),
         title,
         description,
-        createdAt: getCurrentDateTime() 
+        createdAt: getCurrentDateTime(),
+        updatedAt: '' // Initialize updatedAt as empty string
     };
 
     tasks.push(task);
@@ -103,6 +104,7 @@ app.put('/tasks/:id', (req, res) => {
 
     task.title = title;
     task.description = description;
+    task.updatedAt = getCurrentDateTime();
     saveTasksToFile();
     res.json(task);
 });
