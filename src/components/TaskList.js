@@ -13,9 +13,9 @@ const TaskList = ({ tasks, onDelete, onUpdate }) => {
                         <li key={task.id}>
                             <h3>{task.title}</h3>
                             <p>{task.description}</p>
-                            <p><small>Created at: {task.createdAt}</small></p>
-                            {task.updatedAt && task.updatedAt.length > 0 ? (
-                                <p><small style={{color:"green"}}>Updated at: {task.updatedAt}</small></p>
+                            <p><small>Created at: {task.creationDate}</small></p>
+                            {task.updateDate && task.updateDate.length > 0 ? (
+                                <p><small style={{ color: "green" }}>Updated at: {task.updateDate}</small></p>
                             ) : null}
                             <button onClick={() => onUpdate(task)}>Update</button>
                             <button type="button" onClick={() => onDelete(task.id)}>Delete</button>

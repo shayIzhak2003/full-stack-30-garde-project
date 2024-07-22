@@ -11,13 +11,12 @@ const UpdateTask = ({ task, onUpdate, onCancel }) => {
     }, [task]);
 
     const handleSubmit = (e) => {
-        if(!title || !description)
-            alert("you need to enter all the data in order to update the task") 
-
         e.preventDefault();
-        if (title && description) {
-            onUpdate({ ...task, title, description });
+        if (!title || !description) {
+            alert("You need to enter both title and description to update the task.");
+            return;
         }
+        onUpdate({ ...task, title, description });
     };
 
     return (

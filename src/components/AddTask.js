@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './AddTask.css';
 
-const AddTask = ({ onAdd }) => {
+const AddTask = ({ onAdd, accessToken }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!title || !description)
-            alert("you need to enter all the data in order to make a new task") 
-        if (title && description) {
-            onAdd({ title, description });
+        if (!title || !description) {
+            alert("You need to enter both title and description to add a new task.");
+            return;
+        }
+        try {
+            const response = await axios.post('http://localhost:3000/tasks', 
+            { title, description },
+            { headers: { 'Authorization': `Bearer ${accessToken}` } });
+            onAdd(response.data);
             setTitle('');
             setDescription('');
+        } catch (error) {
+            console.error('Error adding task:', error);
         }
     };
 
